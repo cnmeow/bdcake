@@ -1,344 +1,45 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-10WF5QSQC6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-10WF5QSQC6');
-</script>
-	<title> Online Birthday Cake </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<style>
-		body {
-			background-color: black;
-			text-align: center;
-		}
-		h1 {
-			color: #FDD2BF;
-			font-size: 5vw;
-			font-family: Helvetica;
-			text-align: center;
-			margin-bottom: 0px;
-		}
-		h2 {
-			color: #E98580;
-			font-size: 2.5vw;
-			font-family: Helvetica;
-			text-align: center;
-			margin-bottom: 0.5vw;
-		}
-		.grid-container {
-			display: grid;
-			grid-template-columns: auto auto auto;
-			background-color: #492F10;
-		}
-		.grid-item {
-			padding: 1vw;
-			font-size: 30px;
-			text-align: center;
-		}
-		.imggrid {
-			width: 100%;
-			height: 100%;
-		}
-		#maindiv {
-			width: 100%;
-			position: absolute;
-			display: none;
-			justify-content: center;
-			text-align: center;
-			height: 80vw;
-		}
-		#cakeimg{
-			z-index: 1;
-			width: 50vw;
-			position: relative;
-		}
-		button{
-			background-color: #fcece6;
-			height: 4vw;
-			width: 20vw;
-			font-size: 2vw;
-			position: block;
-			margin: 0;
-			
-		}
-		#mainid {
-			display: none;
-			justify-content: center;
-		}
-		#oldinp{
-			width: 20vw;
-			height: 4vw;
-			font-size: 3vw;
-			text-align: center;
-		}
-		.sticky {
-			position: fixed;
-			top: 20%;
-			width: 100%;
-			text-align: center;
-			justify-content: center;
-		}
-		.imgcd {
-			width: 7vw;
-
-		}
-		.header {
-			position: fixed;
-			top: 0;
-			width: 100%;
-		}
-		#wishinp {
-			width: 40vw;
-			font-size: 2vw;
-			height: 10vw;
-		}
-		h3 {
-			margin:0;
-			color: white;
-			font-size: 1.5vw;
-			font-family: Helvetica;
-			text-align: center;
-			margin-bottom: 1vw;
-		}
-		#wishcontain{
-			display: none;
-		}
-		#txthtu {
-			background-color: #FDD2BF;
-			padding: 1vw;
-			display: none;
-		}
-		#txtabm{
-			background-color: #FDD2BF;
-			padding: 1vw;
-			display: none;
-		}
-		footer {
-			text-align: center;
-			background-color: #DF5E5E;
-			width: 100%;
-			height: 4vw;
-			margin-top: 2vw;
-			color: black;
-			position: fixed;
-		}
-		.icon {
-			width: 3vw;
-		}
-		a {
-			margin-top: 2vw;
-			margin-right: 3vw;
-			width: 3vw;
-		}
-	</style>
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 <body>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.js"></script>
-	<div class="header" id="myHeader" style = "display:none;z-index: 100;">
-		
-	</div>
-	<h1>🎂 ONLINE BIRTHDAY CAKE 🎂</h1>
-	<div id = "old">
-		<button onclick = "htu()"> How to use </button>
-		<div id = "txthtu">
-			<h2> - Enter your age in the box below.<br>
-				- Choose your birthday cake. I will light candles.<br>
-				- Make a wish then blow out the candles <br>(click 'Blow Candles' button in the left corner).
-			</h2>
-			<button onclick = "clshtu()"> Close </button>
-		</div><br>
-		<button onclick = "abm()"> About me </button>
-		<div id = "txtabm">
-			<h2> My little gift for those of you who <br>
-				have a birthday during this pandemic, <br>
-				or who forgot to buy a birthday cake.<br>
-				"From CamNguyen, with love"
-			</h2>
-			<button onclick = "clsabm()"> Close </button>
+	<div id="balloon-container"></div>
+	<div id="howtouseContainer">
+		<div id="howtouse">
+			<a id="txtTittleHTU" class="txtHowtouse"> HOW TO USE </a><br>
+			<a id="txtContentHTU" class="txtHowtouse"> With this website, we will organize an online birthday party for you.<br>
+				We provide cake, candles according to your age, sing a birthday song,<br>
+				and record your wishes as well.<br>
+				To begin this celebration, simply input your age in the field above<br>
+				and click the "START THE PARTY" button. </a><br>
+			<button id="btnClsHowtouse" class="btnCake" onclick="clsHowtouse()"> CLOSE </button>
 		</div>
-
-		<h2> How old are you? 🤔 </h2>
-		<input id="oldinp" type="number" placeholder="17" min="1" max="999">
-		<br>
-		<button id="oldbtn" type = "button" onclick="submitold()"> Submit </button>
 	</div>
-	<div style="position:relative;z-index:99;">
-		<button id="startConfetti" style="display: none">Start</button>
-	</div>
-	
-	<div id = "txthd" style = "display:none";>
-		<h2> Choose any birthday cake, I will buy it for you 😎💵</h2>
-		<h3> Click on the cake to choose </h3>
-	</div>
-	<div id = "optionn" style = "display:none;z-index: 112;top:20%;position: fixed;">
-		<button id = "btnblcandle" onclick = "blowcd()"> Blow candles </button>
-	</div>
-	<div id = "mainid">
-		<div id="maindiv">
-			<div class="sticky" id = "stid" style = "z-index: 101;">
-				<div id = "wishcontain">
-					<h2 style = "background-color:black;">Let's make a wish, or type ur wish to this</h2>
-					<textarea id = "wishinp" placeholder="If you need someone to listen to your wishes, I will"></textarea>
-					<br>
-					<button id = "btnwish" onclick = "donewish()"> I'm done </button>
+	<div id="container">
+		<h1 id="txtBirthday"> Birthday </h1>
+		<h1 id="txtOnline"> ONLINE </h1>
+		<a id="credit"> a project by cnmeow </a>
+		<div id="age">
+			<a id="txtIm" class="txtimyearsold"> I'M </a>
+			<input type="number" id="inpYears" min="1" max="99" placeholder="19" required autofocus>
+		</div>
+		<div id="topCake" class="cakeContainer">
+			<div id="candleContainer">
+				<div id="candle">
+					<div id="light"></div>
 				</div>
 			</div>
-			<button type="button" onclick = "changecake()" id = "btnchange"> Change cake </button><br>
-			<button type="button" onclick = "startt()" id = "btnstart"> Start </button><br>
+			<button id="pinkCake" class="btnCake" onclick="openHowtouse()">
+				<a class="txtBtnCake"> How to use </a>
+			</button>
 		</div>
-		<div class = "grid-container" id = "gridid">
-			<div class="grid-item" onclick="slcake(1)">
-				<img class="imggrid" src="img/1.jpg">
-			</div>
-			<div class="grid-item" onclick="slcake(2)">
-				<img class="imggrid" src="img/2.jpg">
-			</div>
-			<div class="grid-item" onclick="slcake(3)">
-				<img class="imggrid" src="img/3.jpg">
-			</div>
-			<div class="grid-item" onclick="slcake(4)">
-				<img class="imggrid" src="img/4.jpg">
-			</div>
-			<div class="grid-item" onclick="slcake(5)">
-				<img class="imggrid" src="img/5.jpg">
-			</div>
-			<div class="grid-item" onclick="slcake(6)">
-				<img class="imggrid" src="img/6.jpg">
-			</div>
-			<div class="grid-item" onclick="slcake(7)">
-				<img class="imggrid" src="img/7.jpg">
-			</div>
-			<div class="grid-item" onclick="slcake(8)">
-				<img class="imggrid" src="img/8.jpg">
-			</div>
-			<div class="grid-item" onclick="slcake(9)">
-				<img class="imggrid" src="img/9.jpg">
-			</div>
+		<div id="botCake" class="cakeContainer">
+			<div id="starsContainer"></div>
+			<button id="redCake" class="btnCake" onclick="appendStars()">
+				<a class="txtBtnCake"> START THE PARTY </a>
+			</button>
 		</div>
 	</div>
-	<audio id="hpbdsong">
-		<source src="sound/hpbd.mp3">
-		</audio>
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7310599997431097"
-     crossorigin="anonymous"></script>
-		<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://rawgit.com/benevolenttech/jquery.confetti.js/master/jquery.confetti.js"></script>
-		<script>
-			var mainn = document.getElementById("maindiv"),
-			imgtmp = document.createElement("img"),
-			gridd = document.getElementById("gridid"),
-			btn1 = document.getElementById("btnstart"),
-			btn2 = document.getElementById("btnchange"),
-			song = document.getElementById("hpbdsong"),
-			oldd = document.getElementById("old"),
-			main2 = document.getElementById("mainid"),
-			poscandle = document.getElementById("stid"),
-			oldnum = document.getElementById("oldinp"),
-			header = document.getElementById("myHeader"),
-			wishh = document.getElementById("wishcontain"),
-			ot = document.getElementById("optionn"),
-			txtheader = document.getElementById("txthd"),
-			btnblw = document.getElementById("btnblcandle"),
-			candleclass = document.getElementsByClassName("imgcd"),
-			num;
-			sticky = header.offsetTop;
-			imgtmp.id = "cakeimg";
-			function slcake (idcake) {
-				gridd.style.display = 'none';
-				mainn.style.display = "block";
-				imgtmp.src = 'img/'+idcake+'.jpg';
-				mainn.appendChild(imgtmp);
-				btn2.scrollIntoView();
-			}
-			function changecake() {
-				mainn.style.display = "none";
-				gridd.style.display = "grid";
-				mainn.scrollIntoView();
-			}
-			function wishtime () {
-				wishcontain.style.display = 'block';
-
-			}
-			function lightcandle () {
-				num = (oldnum.value).toString();
-				for (var i = 0, maxi = num.length; i < maxi; ++i) {
-					var candleimg = document.createElement("img");
-					candleimg.src = 'img/'+num[i]+'.png';
-					candleimg.className = "imgcd";
-					poscandle.appendChild(candleimg);
-				}
-				setTimeout(wishtime, 1000);
-			}
-			
-			function startt () {
-				btn1.style.display = 'none';
-				btn2.style.display = 'none';
-				song.play();
-				var scro = document.getElementsByClassName("imgcd")[0];
-				imgtmp.scrollIntoView();
-				lightcandle();
-				header.style.display = 'block';
-			}
-			function submitold () {
-				var foot = document.getElementById("fter");
-				fter.style.display = 'none';
-				oldd.style.display = 'none';
-				main2.style.display = 'block';
-				txtheader.style.display = 'block';
-			}
-			function donewish() {
-				$.confetti.start();
-				var txtwish = document.getElementById("wishinp");
-				wishcontain.style.display = 'none';
-				ot.style.display = 'block';
-				fetch("https://api.apispreadsheets.com/data/15493/", {
-					method: "POST",
-					body: JSON.stringify({"data": {"Wishes":txtwish.value}}),
-				});
-			}
-			function blowcd() {
-				alert("Happy birthday! I hope all your birthday wishes and dreams come true. The condition to use my web is that you have to be happy! OKKKKK ?");
-				imgtmp.scrollIntoView();
-				btnblw.style.display = 'none';
-				for (var i = 0, maxi = num.length; i < maxi; ++i) {
-					candleclass[i].src = 'img/'+num[i]+'-off.png';
-				}
-			}
-			var notihtu = document.getElementById("txthtu"),
-			notiabm = document.getElementById("txtabm");
-			function htu () {
-				notihtu.style.display = 'block';
-			}
-			function abm () {
-				notiabm.style.display = 'block';
-			}
-			function clshtu () {
-				notihtu.style.display = 'none';
-			}
-			function clsabm () {
-				notiabm.style.display = 'none';
-			}
-		</script>
-	</body>
-	<footer id = "fter">
-		<a href = "https://github.com/camnguyenmeow">
-			<img src="img/github.svg" class = "icon">
-		</a>
-		<a href = "https://www.facebook.com/camnguyenmeow">
-			<img  src="img/facebook.svg" class = "icon">
-		</a>
-		<a href = "mailto:camnguyenmeow@gmail.com">
-			<img  src="img/mail.svg" class = "icon">
-		</a>
-		<a href = "https://camnguyenmeow.github.io/">
-			<img  src="img/web.svg" class = "icon">
-		</a>
-	</footer>
-	</html>
+<script type="text/javascript" src="script.js"></script>	
+</body>
+</html>
