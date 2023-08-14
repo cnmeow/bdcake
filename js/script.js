@@ -73,6 +73,7 @@ function appendStars() {
     for (var i = 0, maxi = allStars.length; i < maxi; i++) {
 		  allStars[i].style.opacity = 0;
     }
+    window.location.href = "play.html";
   }, 1500);
 }
 window.addEventListener("load", () => {
