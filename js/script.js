@@ -54,6 +54,7 @@ function createStars(num) {
 }
 const allStars = document.getElementsByClassName('star');
 function appendStars() {
+  localStorage.setItem('age', document.getElementById('inpYears').value);
   for (let star of allStars) {
     star.style.opacity = 1;
     star.style.transform = 'translate(0, 0) scale(1)';    
