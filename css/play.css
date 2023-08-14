@@ -55,6 +55,7 @@ body {
     position: relative;
     width: 100%;
     height: 70%;
+    justify-content: center;
   }
   .cakeSelected {
     height: 100%;
@@ -62,7 +63,33 @@ body {
   }
   
   #controlContainer {
-    height: 15%;
+    top: 5%;
+    height: 10%;
+    position: relative;
+    display: none;
+    justify-content: center;
+  }
+  .btnControl {
+    height: 70%;
+    border-radius: 10px;
+    text-align: center;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-size: 25px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+  }
+  #btnChange {
+    background-color: rgb(243, 126, 32);
+  }
+  #btnStart {
+    background-color: rgb(249, 121, 180);
+  }
+  #candleContainer {
+    position: absolute;
+  }
+  .candle {
     position: relative;
   }
  
