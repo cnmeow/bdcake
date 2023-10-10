@@ -1,81 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css'>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css'>   
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css'>
     <link rel="stylesheet" type="text/css" href="css/wishContainer.css">
-</head>
-
-<body>
+  </head>
+  <body>
     <div id="container"></div>
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
-        import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
-        const firebaseConfig = {
-            apiKey: "AIzaSyApp1U3mCbXoWkxOlyWxGrFc6KtCK3Rczc",
-            authDomain: "birthdayonline.firebaseapp.com",
-            databaseURL: "https://birthdayonline-default-rtdb.asia-southeast1.firebasedatabase.app",
-            projectId: "birthdayonline",
-            storageBucket: "birthdayonline.appspot.com",
-            messagingSenderId: "967800040368",
-            appId: "1:967800040368:web:11863466e5904fa8154475",
-            measurementId: "G-Q7S3ECGMZF"
-        };
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
-
-    async function getData() {
-    const dataRef = ref(db, '/users/');
-
-    try {
-        const snapshot = await get(dataRef);
-        const data = [];
-        if (snapshot.exists()) {
+      import {
+        initializeApp
+      } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        get
+      } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyApp1U3mCbXoWkxOlyWxGrFc6KtCK3Rczc",
+        authDomain: "birthdayonline.firebaseapp.com",
+        databaseURL: "https://birthdayonline-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "birthdayonline",
+        storageBucket: "birthdayonline.appspot.com",
+        messagingSenderId: "967800040368",
+        appId: "1:967800040368:web:11863466e5904fa8154475",
+        measurementId: "G-Q7S3ECGMZF"
+      };
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+      async function getData() {
+        const dataRef = ref(db, '/users/');
+        try {
+          const snapshot = await get(dataRef);
+          const data = [];
+          if (snapshot.exists()) {
             snapshot.forEach((childSnapshot) => {
-                data.push({user: childSnapshot.val().username, age: childSnapshot.val().age, wish: childSnapshot.val().wish});
+              data.push({
+                user: childSnapshot.val().username,
+                age: childSnapshot.val().age,
+                wish: childSnapshot.val().wish
+              });
             });
             var container = document.getElementById('container');
             let cntWish = 0;
             data.forEach((item) => {
-                var divCard = document.createElement('a');
-                divCard.className = 'col-md-4';
-                divCard.setAttribute('data-toggle', 'lightbox');
-                divCard.setAttribute('data-gallery', 'gallery');
-
-                var divUser = document.createElement('div');
-                divUser.className = 'txtUser';
-                divUser.innerHTML = item.user + "(" + item.age + ")";
-                divCard.appendChild(divUser);
-
-                var divWish = document.createElement('div');
-                divWish.className = 'txtWish';
-                divWish.innerHTML = item.wish;
-                divCard.appendChild(divWish);
-
-                if (cntWish % 3 == 0) {
-                    var divRow = document.createElement('div');
-                    divRow.className = 'row';
-                    container.appendChild(divRow);
-                }
-                container.lastChild.appendChild(divCard);
-                cntWish++;
-             });
-        }
-        
-           
-         else {
+              var divCard = document.createElement('a');
+              divCard.className = 'col-md-4';
+              divCard.setAttribute('data-toggle', 'lightbox');
+              divCard.setAttribute('data-gallery', 'gallery');
+              var divUser = document.createElement('div');
+              divUser.className = 'txtUser';
+              divUser.innerHTML = item.user + "(" + item.age + ")";
+              divCard.appendChild(divUser);
+              var divWish = document.createElement('div');
+              divWish.className = 'txtWish';
+              divWish.innerHTML = item.wish;
+              divCard.appendChild(divWish);
+              if (cntWish % 3 == 0) {
+                var divRow = document.createElement('div');
+                divRow.className = 'row';
+                container.appendChild(divRow);
+              }
+              container.lastChild.appendChild(divCard);
+              cntWish++;
+            });
+          } else {
             console.log("No data available in the database.");
-           
+          }
+        } catch (error) {
+          console.error("Error reading data:", error);
         }
-    } catch (error) {
-        console.error("Error reading data:", error);
-       
-    }
-}
-window.onload = getData;
+      }
+      window.onload = getData;
     </script>
-</body>
-
+  </body>
 </html>
