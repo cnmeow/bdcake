@@ -16,7 +16,6 @@ const db = getDatabase(app);
 function sendData(username, age, wishes) {
     push(ref(db, 'users'), { username: username, age: age, wish: wishes })
         .then(() => {
-            alert(age);
             console.log(age);
         })
         .catch((error) => {
