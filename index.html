@@ -9,9 +9,9 @@
 			<a id="txtTittleHTU" class="txtHowtouse"> HOW TO USE </a><br>
 			<a id="txtContentHTU" class="txtHowtouse"> With this website, we will organize an online birthday party for you.<br>
 				We provide cake, candles according to your age, sing a birthday song,<br>
-				and record your wishes as well.<br>
-				To begin this celebration, simply input your age in the field above<br>
-				and click the "START THE PARTY" button. </a><br>
+				and record your wishes in the Wish Gallery.<br>
+				To begin this celebration, simply input your name and your age in the fields above,<br>
+				then click the "START THE PARTY" button. </a><br>
 			<button id="btnClsHowtouse" class="btnCake" onclick="clsHowtouse()"> CLOSE </button>
 		</div>
 	</div>
@@ -20,7 +20,9 @@
 		<h1 id="txtOnline"> ONLINE </h1>
 		<a id="credit"> a project by cnmeow </a>
 		<div id="age">
-			<a id="txtIm" class="txtimyearsold"> I'M </a>
+			<a id="txtIm" class="txtimyearsold"> My name's </a>
+			<input type="text" id="inpName" min="1" max="99" placeholder="CamNguyen" required autofocus>
+			<a id="txtIm" class="txtimyearsold">. Today, I'm </a><br>
 			<input type="number" id="inpYears" min="1" max="99" placeholder="19" required autofocus>
 		</div>
 		<div id="topCake" class="cakeContainer">
@@ -31,6 +33,11 @@
 			</div>
 			<button id="pinkCake" class="btnCake" onclick="openHowtouse()">
 				<a class="txtBtnCake"> How to use </a>
+			</button>
+		</div>
+		<div id="botCake" class="cakeContainer">
+			<button id="orangeCake" class="btnCake" onclick="openWishGallery()">
+				<a class="txtBtnCake"> Wish Gallery </a>
 			</button>
 		</div>
 		<div id="botCake" class="cakeContainer">

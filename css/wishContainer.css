@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&family=Satisfy&display=swap');
+.row {
+  margin: 15px;
+  height: 300px;
+  width: 100%;
+}
+.txtUser {
+  padding-top: 5%;
+  width: 100%;
+  height: 20%;
+  font-weight: 600;
+  font-size: 20px;
+  position: relative;
+  word-wrap: break-word;
+  text-align: center;
+  font-family: "Oswald";
+  background-color: rgb(246, 119, 41);
+  border-radius: 5px 5px 0% 0%;
+  color: white;
+}
+.txtWish {
+  padding-top: 5%;
+  width: 100%;
+  height: 80%;
+  font-weight: 200;
+  font-size: 16px;
+  position: relative;
+  word-wrap: break-word;
+  text-align: center;
+  font-family: "Oswald";
+  background-color:rgb(255, 201, 167);
+  border-radius: 0% 0% 5px 5px;
+  color: rgb(189, 107, 62);
+}

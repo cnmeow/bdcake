@@ -3,10 +3,47 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="css/play.css">
 <body>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyApp1U3mCbXoWkxOlyWxGrFc6KtCK3Rczc",
+          authDomain: "birthdayonline.firebaseapp.com",
+          projectId: "birthdayonline",
+          storageBucket: "birthdayonline.appspot.com",
+          messagingSenderId: "967800040368",
+          appId: "1:967800040368:web:11863466e5904fa8154475",
+          measurementId: "G-Q7S3ECGMZF"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+      
     <div id="tittle">
 		<h1 id="txtBirthday"> Birthday </h1>
 		<h1 id="txtOnline"> ONLINE </h1>
 		<a id="credit"> a project by cnmeow </a>
+    </div>
+    <div id="wishContainer">
+        <div id="message">
+            <a class="wishTittle"> Happy Birthday! </a>
+            <br><a class="messageContent">May your day be filled with joy, laughter, and all the things that bring you happiness. <br>Wishing you an incredible day and an even more incredible year ahead! </a>
+            <br><a class="endMessage">Warmest wishes from Cam Nguyen :></a> 
+        </div>
+        <hr>
+        <div id="wish">
+            <a class="wishTittle">Before blowing out the candles, you can write your wish in the box below</a><br>
+            <textarea id="wishContent" placeholder="Write your wish here..."></textarea><br>
+            <button id="btnWish" class="btnControl" onclick="blowCandle()">Blow out the candle</button>
+        </div>
     </div>
     <div id="partyContainer">
         <div id="candleContainer"></div>
@@ -19,6 +56,11 @@
         <button id="btnChange" class="btnControl" onclick="changeCake()"> Change cake</button>
         <button id="btnStart" class="btnControl" onclick="startParty()"> Start party</button>
     </div>
+
+    <div id="wishGallery">
+        <button id="btnWishGallery" class="btnControl" onclick="openWishGallery()"> Wish Gallery</button>
+    </div>
+    <script type="module" src="js/sendWish.js"></script>
     <script src="js/play.js"></script>
 </body>
 </html>

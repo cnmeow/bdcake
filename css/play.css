@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 body {
     background-color: #fcd2b8;
 }
@@ -92,4 +93,50 @@ body {
   .candle {
     position: relative;
   }
- 
+  #wishContainer {
+    border-radius: 10%;
+    padding: 2% 2% 2% 2%;
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    background-color: rgb(249, 121, 180);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #fcd2b8;
+    z-index: 1;
+    text-align: center;
+    display: none;
+  }
+ .wishTittle {
+    font-size: 30px;
+    color: rgb(141, 62, 99);
+ }
+ .endMessage {
+    font-size: 22px;
+    color: rgb(141, 62, 62);
+    font-style: italic;
+ }
+ #wishContent {
+    background-color: #fcd2b8;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+    color: rgb(141, 62, 62);
+    width: 80%;
+    height: 10vw;
+ }
+ #btnWish {
+    background-color: rgb(149, 94, 155);
+ }
+ #wishGallery {
+    text-align: center;
+    display: none;
+    height: 10%;
+    top: 5%;
+    position: relative;
+    justify-content: center;
+  
+ }
+ #btnWishGallery {
+    background-color: red;
+ }

@@ -54,7 +54,18 @@ function createStars(num) {
 }
 const allStars = document.getElementsByClassName('star');
 function appendStars() {
-  localStorage.setItem('age', document.getElementById('inpYears').value);
+  const userName = document.getElementById('inpName').value;
+  const userAge = parseInt(document.getElementById('inpYears').value);
+  if (userName.length > 30 || userName.length < 1) {
+    alert("Please enter your name (1-30 characters)");
+    return;
+  }
+  if (isNaN(userAge) || !Number.isInteger(userAge) || userAge <= 0 || userAge >= 100) {
+    alert("Please enter your age (1-99)");
+    return;
+  } 
+  localStorage.setItem('bdonlineName', userName);
+  localStorage.setItem('bdonlineAge', userAge);
   for (let star of allStars) {
     star.style.opacity = 1;
     star.style.transform = 'translate(0, 0) scale(1)';    
@@ -75,7 +86,12 @@ function appendStars() {
 		  allStars[i].style.opacity = 0;
     }
     window.location.href = "play.html";
-  }, 1500);
+  }, 1400);
+  
+}
+
+function openWishGallery() {
+  window.location.href = "allWishes.html";
 }
 window.addEventListener("load", () => {
   createBalloons(10);
