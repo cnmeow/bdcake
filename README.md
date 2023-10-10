@@ -15,7 +15,7 @@ This repository contains the source code for an online birthday party organizer 
 
 ## How to Use
 
-1. Visit the website at [cnmeow.github.io/bdcake](#).
+1. Visit the website at [cnmeow.github.io/bdcake](cnmeow.github.io/bdcake).
 2. Enter your name and age in the designated fields.
 3. Click the "Start The Party" button 
 4. Choose your favorite birthday cake from the options available.
