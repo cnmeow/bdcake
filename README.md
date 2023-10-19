@@ -11,8 +11,8 @@ This repository contains the source code for an online birthday party organizer 
 - **Virtual Cake**: Choose from a variety of virtual birthday cakes to celebrate your special day.
 - **Candle Lighting**: Light virtual candles on the cake and make a wish.
 - **Birthday Song**: Enjoy a birthday song and celebration.
-- **Wish Gallery**: Save and view your birthday wishes and those of others in the Wish Gallery.
-
+- **Wish Gallery**: Birthday wishes are stored in Firebase, including the name and age of the sender. View all birthday wishes in the Wish Gallery.
+-
 ## How to Use
 
 1. Visit the website at [cnmeow.github.io/bdcake](https://cnmeow.github.io/bdcake/).
